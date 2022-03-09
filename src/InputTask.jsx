@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import EditTask from "./EditTask";
-import PrioritizeTask from "./PrioritizeTask";
 
 class InputTask extends Component {
   render() {
     return (
-        <div className="container">
-        <h1>Very Simple To Do App</h1>
-        <h6>Track All Of The Things</h6>
-        <hr/>
-        <div className="row">
-          <div className="col-sm-4" style={{backgroundColor: 'lavender'}}>
+        
+          <div style={{backgroundColor: 'lavender'}}>
             <div className="panel panel-default">
               <div className="panel-heading ">Add New Todo</div>
                 <form className="form-horizontal card card-body">
@@ -22,7 +17,7 @@ class InputTask extends Component {
                         <h6>I want to...</h6>
                         <textArea
                         className = "create-todo-text" 
-                        onChange={this.props.handleChange} 
+                        onChange= {this.props.handleChange} 
                         value={this.props.inputTask} 
                         type="text" 
                         name="inputTask"  
@@ -31,10 +26,11 @@ class InputTask extends Component {
                         {/*select menu for priority*/}
                         <h6>How much of a priority is this?</h6>
                         <select 
+                        name="priority" 
                         value= {this.props.priority}
                         onChange = {this.props.handleChange}
-                        className="create-todo-priority form-select" >
-                          <option value="" disabled >Select Priority</option>
+                        className="create-todo-priority form-select" required>
+                          <option>Select Priority</option>
                           <option value="1">Low Priority</option>
                           <option value="2">Mid Priority</option>
                           <option value="3">High Priority</option>
@@ -63,19 +59,7 @@ class InputTask extends Component {
             </div>
           </div>
 
-          <PrioritizeTask/>
-          
 
-          
-
-          </div>
-
-        </div>
-      
-      
-             
-            
-      
     
     );
   }

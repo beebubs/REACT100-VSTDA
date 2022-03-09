@@ -1,52 +1,56 @@
 import React, { Component } from "react";
+import EditTask from './EditTask';
+import ToDoItem from "./ToDoItem";
 
 
 class PrioritizeTask extends Component {
   render() {
+    
     return (
-      /*view todos, checkbox, edit and delete */
       
-      <div className="col-sm-8" style={{backgroundColor: 'lavender'}}>
+      /*view todos, checkbox, edit and delete */
+      <div>
+      
+      {
+        this.props.todo.editEnabled === false ?
+      <div style={{backgroundColor: 'lavender'}}>
       <div className="panel panel-default">
-        <div className="panel-heading ">View Todo</div>
+        <div className="panel-heading ">View Todos</div>
           <form className="form-horizontal card card-body">
             <div className="form-group">
               <div className="col-sm-12">
-              <div className="list-group">
-
-                
-                <a href="#" className="list-group-item list-group-item-action list-group-item-success" id="type-priority">
-                {/*checkbox*/ }
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                {/*inputed task appears here*/ }
-                <span className="text-left"> {this.props.inputTask} </span>
-                {/*edit and delete buttons*/ }
-                <i className='fas fa-edit' />
-                <i className='fas fa-trash-alt'/>
-                {this.prioritizeTask}</a>
-                
-
-                <a href="#" className="list-group-item list-group-item-action list-group-item-danger" id="high-priority">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                <i className='fas fa-edit' />
-                <i className='fas fa-trash-alt'/>
-                {this.props.prioritizeTask}</a>
-
-                <a href="#" className="list-group-item list-group-item-action list-group-item-warning" id="mid-priority">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                <i className='fas fa-edit' />
-                <i className='fas fa-trash-alt'/>
-                {this.props.prioritizeTask}</a>
-              </div>
-
-             
-            
+              {/* ToDo Item */}
+              <ul className="list-group">
+                  {
+                    this.props.todoList.map((todoObj, i) => <ToDoItem todoObj={todoObj} key={i}
+                    index={i}
+                    editTask={this.props.editTask} deleteTask={this.props.deleteTask} 
+                    checkbox={this.props.checkbox} setColor={this.props.setColor} />)
+                  
+                  }
+              </ul>      
               </div>
             </div>
-              </form>
+          </form>
 
       </div>
     </div>
+    :
+    <div>
+    {
+      
+      this.props.todoList.map((todoObj, i) => <EditTask todoObj={todoObj} key={i}
+      handleChange={this.props.handleChange} todo={this.props.todo}
+      todoList={this.props.todoList} editTask={this.props.editTask} deleteTask={this.props.deleteTask} 
+      checkbox={this.props.checkbox} setColor={this.props.setColor} />)
+                 
+    }
+    </div>
+    
+    }
+    
+    </div>
+
     
     );
   }

@@ -21,8 +21,7 @@ class EditTask extends Component {
                 value={this.props.inputTask} 
                 type="text" 
                 name="inputTask" 
-                id ="newTask" 
-                placeholder="Write a description of your task here...">
+                id ="newTask" >
 
             </textArea>
 
@@ -51,28 +50,7 @@ class EditTask extends Component {
                 </div>
             </div>
                 
-                <a href="#" className="list-group-item list-group-item-action list-group-item-success" id="type-priority">
-                {/*checkbox*/ }
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                {/*inputed task appears here*/ }
-                <span className="text-left"> {this.props.inputTask} </span>
-                {/*edit and delete buttons*/ }
-                <i className='fas fa-edit' />
-                <i className='fas fa-trash-alt'/>
-                {this.prioritizeTask}</a>
-                
-
-                <a href="#" className="list-group-item list-group-item-action list-group-item-danger" id="high-priority">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                <i className='fas fa-edit' />
-                <i className='fas fa-trash-alt'/>
-                {this.props.prioritizeTask}</a>
-
-                <a href="#" className="list-group-item list-group-item-action list-group-item-warning" id="mid-priority">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                <i className='fas fa-edit' />
-                <i className='fas fa-trash-alt'/>
-                {this.props.prioritizeTask}</a>
+               
               </div>
 
 
