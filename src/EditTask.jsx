@@ -1,28 +1,24 @@
 import React, { Component } from "react";
+import ToDoItem from "./ToDoItem";
 
 class EditTask extends Component {
   render() {
+    
     return (
       /*view todos and edit task*/
-      
-      <div className="col-sm-8" style={{backgroundColor: 'lavender'}}>
-      <div className="panel panel-default">
-        <div className="panel-heading ">View Todo</div>
-          <form className="form-horizontal card card-body">
-            <div className="form-group">
-              <div className="col-sm-12">
-              <div className="list-group">
+    
+            <div className="list-group">
 
             {/*input task description*/}
             <h6>Description</h6>
             <textArea
                 className = "create-todo-text" 
                 onChange={this.props.handleChange} 
-                value={this.props.inputTask} 
+                defaultValue={this.props.inputTask} 
                 type="text" 
                 name="inputTask" 
                 id ="newTask" >
-
+                
             </textArea>
 
             {/*select menu for priority*/}
@@ -49,20 +45,11 @@ class EditTask extends Component {
                 }}>Save</button>
                 </div>
             </div>
-                
-               
-              </div>
-
-
-              </div>
             </div>
-              </form>
+            
+            
+                
 
-      </div>
-    </div>
-      
-  
-    
     );
   }
 }

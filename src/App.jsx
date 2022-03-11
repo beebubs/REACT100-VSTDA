@@ -23,6 +23,7 @@ class App extends Component {
     this.deleteTask = this.deleteTask.bind(this);
     this.checkbox = this.checkbox.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.strikethrough = this.strikethrough.bind(this);
 
   }
   
@@ -37,6 +38,8 @@ class App extends Component {
     });
 
   }
+
+  
   
   handleClick(){
     let arrCopy = this.state.todoList.concat(this.state.todo);
@@ -46,8 +49,21 @@ class App extends Component {
 
   }
 
+  handleSave(i, updatedObj){
+    // console.log("save button clicked");
+    // console.log("i", i)
+    // console.log("updatedObj", updatedObj)
+
+    let arrCopy = JSON.parse(JSON.stringify(this.state.todoList));
+    arrCopy[i].editEnabled = !arrCopy[i].editEnabled;
+    arrCopy[i] = updatedObj;
+    this.setState({
+      todoList: arrCopy
+    });
+  
+  }
+
   setColor(priority){
-    console.log(priority)
 
     if(priority == 1){
       return "list-group-item-success";
@@ -63,11 +79,10 @@ class App extends Component {
 
   editTask(i){
     console.log("edit button is clicked");
-    //let arrCopy = this.state.todoList.concat(this.state.todo);
+    console.log("i edit", i)
     let arrCopy = JSON.parse(JSON.stringify(this.state.todoList));
-      
+    arrCopy[i].editEnabled = !arrCopy[i].editEnabled
     this.setState({
-      editEnabled: true,
       todoList: arrCopy
     });
     
@@ -86,26 +101,36 @@ class App extends Component {
   }
 
 
-  checkbox(){
-    if(this.state.taskCompleted === true){
-      console.log(completed);
-    }else{
-      console.log("this box was unchecked")
-    }
-  
-  }
-  
-  handleSave(i){
-    let arrCopy = this.state.todoList.concat(this.state.todo);
+  checkbox(i){
+    console.log("checkbox");
+    console.log("i checkbox", i);
+    let arrCopy = JSON.parse(JSON.stringify(this.state.todoList));
+    console.log("arrCopy[i]", arrCopy[i])
+
+    arrCopy[i].taskCompleted = !arrCopy[i].taskCompleted
     this.setState({
       todoList: arrCopy
     });
-  
-  }
+    console.log("task completed?", arrCopy[i].taskCompleted)
     
+  }
+  
+  strikethrough(i){
+
+    if(this.state.todoList[i].taskCompleted == true){
+      console.log("line-through")
+      return "line-through";
+    }else{
+      return "none";
+    }
+    
+  }
+  
+  
 
 
   render() {
+    
     
     return (
       
@@ -141,9 +166,14 @@ class App extends Component {
           editTask={this.editTask}
           checkbox={this.checkbox}
           setColor={this.setColor}
+          handleSave={this.handleSave}
+          handleClick={this.handleClick}
+          strikethrough={this.strikethrough}
           
           />
         }
+        
+
         </div>
 
         </div>
