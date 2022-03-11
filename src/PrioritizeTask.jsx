@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ToDoItem from "./ToDoItem";
 
-
 class PrioritizeTask extends Component {
   render() {
     
@@ -41,8 +40,7 @@ class PrioritizeTask extends Component {
     </div>
 
     </div>
-
-    
+   
     );
   }
 }

@@ -28,14 +28,12 @@ class ToDoItem extends Component {
     
       }
   render() {
-
-      
-    
+   
     return (
         <div>
         {this.props.todoObj.editEnabled == false ?
         <li className= {`list-group-item ${this.props.setColor(this.props.todoObj.priority)}`}>
-        
+
                   {/* checkbox */}
                     <input 
                       type="checkbox"
@@ -50,7 +48,7 @@ class ToDoItem extends Component {
 
                   {/* Edit Button */}
 
-                  <button className="btn" type="button" name="submit"
+                  <button className="btn edit-todo float-right" type="button" name="submit"
                     onClick={() => 
                       this.props.editTask(this.props.index)
                     }>
@@ -58,12 +56,13 @@ class ToDoItem extends Component {
                     </button>
 
                     {/* Delete Button */}
-                  <button className="btn" type="button" name="submit"
+                  <button className="btn delete-todo float-right" type="button" name="submit"
                     onClick={
                       () => this.props.deleteTask(this.props.index)
                     }>
                       <i className='fas fa-trash-alt'/>
                     </button>
+                
                 
             </li>
             :
@@ -72,7 +71,7 @@ class ToDoItem extends Component {
             {/*input task description*/}
             <h6>Description</h6>
             <textArea
-                className = "create-todo-text" 
+                className = "update-todo-text" 
                 onChange={this.handleUpdatedChange} 
                 defaultValue={this.props.todoObj.inputTask} 
                 type="text" 
@@ -99,7 +98,7 @@ class ToDoItem extends Component {
             {/*add button and click event */}
             <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">
-                <button className="btn btn-primary" type="button" name="submit"
+                <button className="btn btn-primary update-todo" type="button" name="submit"
                     onClick={() => 
                       this.props.handleSave(this.props.index, this.state.todo)
                 }>Save</button>

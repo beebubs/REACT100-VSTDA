@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import EditTask from "./EditTask";
 
 class InputTask extends Component {
   render() {
@@ -36,10 +35,6 @@ class InputTask extends Component {
                           <option value="3">High Priority</option>
                         </select>
 
-
-    
-                  
-                  
                     </div>
                   </div>
                   
@@ -58,9 +53,7 @@ class InputTask extends Component {
 
             </div>
           </div>
-
-
-    
+   
     );
   }
 }

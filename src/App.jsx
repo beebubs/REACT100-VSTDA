@@ -53,7 +53,6 @@ class App extends Component {
     // console.log("save button clicked");
     // console.log("i", i)
     // console.log("updatedObj", updatedObj)
-
     let arrCopy = JSON.parse(JSON.stringify(this.state.todoList));
     arrCopy[i].editEnabled = !arrCopy[i].editEnabled;
     arrCopy[i] = updatedObj;
@@ -78,8 +77,8 @@ class App extends Component {
   }
 
   editTask(i){
-    console.log("edit button is clicked");
-    console.log("i edit", i)
+    // console.log("edit button is clicked");
+    // console.log("i edit", i)
     let arrCopy = JSON.parse(JSON.stringify(this.state.todoList));
     arrCopy[i].editEnabled = !arrCopy[i].editEnabled
     this.setState({
@@ -89,7 +88,7 @@ class App extends Component {
   }
   
   deleteTask(i){
-    console.log("delete button is clicked");
+    // console.log("delete button is clicked");
     let arrCopy = JSON.parse(JSON.stringify(this.state.todoList));
     console.log("i", i)
     arrCopy.splice(i,1);
@@ -102,8 +101,8 @@ class App extends Component {
 
 
   checkbox(i){
-    console.log("checkbox");
-    console.log("i checkbox", i);
+    // console.log("checkbox");
+    // console.log("i checkbox", i);
     let arrCopy = JSON.parse(JSON.stringify(this.state.todoList));
     console.log("arrCopy[i]", arrCopy[i])
 
@@ -126,23 +125,16 @@ class App extends Component {
     
   }
   
-  
-
-
   render() {
     
-    
     return (
-      
       
       <div className="container my-4">
 
         <Header/>
 
         <div className="row">
-        
-        
-        
+
         <div className="col-lg-4 col-md-4 mb-4">
           
         
@@ -172,21 +164,12 @@ class App extends Component {
           
           />
         }
-        
-
         </div>
 
         </div>
 
       </div>
 
-      
-      
-
-        
-      
-      
-      
 
     ); 
   }
